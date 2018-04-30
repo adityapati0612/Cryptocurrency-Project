@@ -47,18 +47,26 @@
 			var fly=0;
 			 var volum=0;
 			 var name='';
+			 var symbol='';
+			 var supply=0;
 		fetch("https://api.coinmarketcap.com/v1/ticker/bitcoin/")
 			.then(res => res.json())
 			.then(res => {
 			 res.forEach(i => {
-				name=i.symbol;
+				name=i.name;
+				symbol=i.symbol;
 				volum= i.percent_change_1h;
-			 fly = i.price_usd;})
+			 fly = i.price_usd;
+			 supply=i.available_supply;
+			 
+			 })
 				 console.log(fly);
 				 console.log(volum);
 				 document.getElementById('perfect3').innerHTML = name;
 				 document.getElementById('perfect').innerHTML = fly;
 				 document.getElementById('perfect2').innerHTML = volum;
+				 document.getElementById('perfect4').innerHTML = symbol;
+				 document.getElementById('perfect5').innerHTML = supply;
 				});
 		
 			setInterval(function(){ 
@@ -69,17 +77,78 @@
 			.then(res => {
 			 res.forEach(i => {
 				volum= i.percent_change_1h;
-			 fly = i.price_usd;})
+			 fly = i.price_usd;
+			  supply=i.available_supply;
+			 })
 				 console.log(fly);
 				 console.log(volum);
+				 console.log(supply);
 				 document.getElementById('perfect').innerHTML = fly;
 				 document.getElementById('perfect2').innerHTML = volum;
+				 document.getElementById('perfect5').innerHTML = supply;
 				 console.log('updated');
 				 });
 				 }, 300000);
 			
 		</script>
 		<!---script---->
+		
+			<!---script2---->
+			
+		<script type="text/javascript">
+
+			var fly=0;
+			 var volum=0;
+			 var name='';
+			 var symbol='';
+			 var supply=0;
+		fetch("https://api.coinmarketcap.com/v1/ticker/ethereum/")
+			.then(res => res.json())
+			.then(res => {
+			 res.forEach(i => {
+				name=i.name;
+				symbol=i.symbol;
+				volum= i.percent_change_1h;
+			 fly = i.price_usd;
+			 supply=i.available_supply;
+			 
+			 })
+				 console.log(fly);
+				 console.log(volum);
+				 document.getElementById('cryp1').innerHTML = name;
+				 document.getElementById('cryp2').innerHTML = fly;
+				 document.getElementById('cryp3').innerHTML = volum;
+				 document.getElementById('cryp4').innerHTML = symbol;
+				 document.getElementById('cryp5').innerHTML = supply;
+				});
+		
+			setInterval(function(){ 
+			 var fly=0;
+			 var volum=0;
+		fetch("https://api.coinmarketcap.com/v1/ticker/ethereum/")
+			.then(res => res.json())
+			.then(res => {
+			 res.forEach(i => {
+				volum= i.percent_change_1h;
+			 fly = i.price_usd;
+			  supply=i.available_supply;
+			 })
+				 console.log(fly);
+				 console.log(volum);
+				 console.log(supply);
+				 document.getElementById('cryp2').innerHTML = fly;
+				 document.getElementById('cryp3').innerHTML = volum;
+				 document.getElementById('cryp5').innerHTML = supply;
+				 console.log('updated');
+				 });
+				 }, 300000);
+			
+		</script>
+		
+		
+		<!---script2---->
+		
+		
 	<div class="container-fluid">
 	
 	<!---1st row heading---->
@@ -130,22 +199,11 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="index.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		Home <span class="sr-only">(current)</span></a>
-     
-<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-
-
-
-
 
 	 </li>
-      <li class="nav-item  active">
+      <li class="nav-item  ">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		Link</a>
 		
@@ -158,20 +216,7 @@
 		
 		
       </li>
-      <li class="nav-item dropdown active">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
+      
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -188,6 +233,10 @@
 		</div>
 	</div>
 
+		<!---table---->
+	<br/>
+	<br/>
+	<br/>
 	<div class="container-fluid">
 	
 		<div class="row">
@@ -198,10 +247,12 @@
   <thead>
   
 	<tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">S.No.</th>
+      <th scope="col">Name</th>
+      <th scope="col">Price_usd</th>
+      <th scope="col">%_change_1h</th>
+	  <th scope="col">Symbol</th>
+	  <th scope="col">Available Supply</th>
     </tr>
   </thead>
   <tbody>
@@ -214,41 +265,126 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">BITCOIN CRYPTOCURRENCYS</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        ...
+			
+				<!----cards view---->
+				
+					<div class="card">
+  <div class="card-header">
+    Cryptocurrency
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Bitcoin</h5>
+    <p class="card-text">
+	
+	Bitcoin (₿) is a cryptocurrency and worldwide payment system.[9]:3 It is the first decentralized digital currency, as the system works without a central 
+	bank or single administrator.[9]:1[10] The network is peer-to-peer and transactions take place between users directly, without an intermediary.
+	These transactions are verified by network nodes through the use of cryptography and recorded in a public distributed ledger called a blockchain.
+	Bitcoin was invented by an unknown person or group of people under the name Satoshi Nakamoto[11] and released as open-source software in 2009.[12]
+
+Bitcoins are created as a reward for a process known as mining. They can be exchanged for other currencies, products, and services.
+ As of February 2015, over 100,000 merchants and vendors accepted bitcoin as payment. Research produced by the University of Cambridge estimates that in 
+ 2017, there were 2.9 to 5.8 million unique users using a cryptocurrency wallet, most of them using Bitcoin.
+	
+	</p>
+    
+  </div>
+</div>
+				
+				
+				<!----cards view---->
+			
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+       
       </div>
     </div>
   </div>
 </div>
+	  <!------modal-->
 	  
-	  
-      <td id= "perfect"   ></td>
-      <td id="perfect2" >
-	  
-	  </td>
-    </tr>
-	<!---+
-    <tr>
+      <td id= "perfect" > </td>
+      <td id="perfect2" > </td>
+		<td id="perfect4" > </td>
+		<td id="perfect5" > </td>
+
+  </tr>
+	
+	<br/>
+	
+	
+    <tr >
       <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
+		
+			<td class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1" id="cryp1">Jacob</td>
+			
+			
+				<!-- Modal -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">ETHEREUM CRYPTOCURRENCY</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+					
+					<!--card view--->
+					
+						<div class="card">
+  <div class="card-header">
+    Cryptocurrency
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">ETHEREUM</h5>
+    <p class="card-text">
+	Ether is a cryptocurrency whose blockchain is generated by the Ethereum platform. Ether can be transferred between accounts and used to compensate 
+	participant mining nodes for computations performed.
+	 Ethereum provides a decentralized
+	Turing-complete virtual machine, the Ethereum Virtual Machine (EVM), which can execute scripts using an international network of public nodes. 
+	"Gas", an internal transaction pricing mechanism, is used to mitigate spam and allocate resources on the network
+		Ethereum was proposed in late 2013 by Vitalik Buterin, a cryptocurrency researcher and programmer. 
+		Development was funded by an online crowdsale that took place between July and August 2014.
+		The system went live on 30 July 2015, with 11.9 million coins "premined" for the crowdsale.
+		This accounts for about 13 percent of the total circulating supply.
+
+In 2016, as a result of the collapse of The DAO project, Ethereum was split into two separate blockchains – the new separate version became Ethereum (ETH),
+ and the original continued as Ethereum Classic (ETC).
+ The value of the Ethereum currency grew over 13,000 percent in 2017.
+	
+	</p>
+  
+  </div>
+</div>
+					
+					
+					<!--card view--->
+					
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+			
+      
+	  <td id="cryp2"></td>
+      <td id="cryp3"></td>
+	  <td id="cryp4"></td>
+	  <td id="cryp5"></td>
     </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
-	---->
+    
+
   </tbody>
 </table>			
 			</div>
@@ -259,9 +395,9 @@
 	
 	<!-----2nd row---------->
 
-	<!----footer------
 	
-	<hr/>
+	
+
 	
 	<br/>
 	<br/>
@@ -272,32 +408,20 @@
 		
 			<div class="row">
 			
-				<div class="col-lg-3 col-md-3 col-sm-3 fl">
+				<div class="col-lg-12 col-md-12 col-sm-12" style="text-align:center;">
 				
-					fddgd
-				
-				</div>
-				
-				<div class="col-lg-4 col-md-4 col-sm-4 ">
-				
-				dfd
+					<h4> Cryptocurrency Market &copy2018 </h4>
+					<img src="E:\project images\icon.png" height="10%" width="10%" class="img-fluid" alt="Responsive image">
 				
 				</div>
-			
-			
-			<div class="col-lg-3 col-md-3 col-sm-3 fr " style="margin-left:2%;">
 				
 				
-				fdf
-				</div>
 			
 			</div>
 		
 		</div>
 		
 		<hr/>
-	
-	footer------>
 	
 	
 </body>
